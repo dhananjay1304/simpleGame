@@ -33,7 +33,7 @@ const getComputerChoice = function () {
   }
 };
 
-const getWinner = (cChoice, pChoice = DEFAULT_USER_CHOICE) => {
+const getWinner = (cChoice, pChoice = cChoice ==='ROCK' ? PAPER: DEFAULT_USER_CHOICE) => {
   cChoice === pChoice
     ? RESULT_DRAW
     : (cChoice === ROCK && pChoice === PAPER) ||
@@ -67,7 +67,7 @@ startGameBtn.addEventListener("click", () => {
   if (playerChoice) {
       winner = getWinner(computerChoice, playerChoice);
     } else {
-      winner = getWinner(computerChoice, playerChoice);
+      winner = getWinner(computerChoice);
     }
 
   let message = `you picked ${playerChoice || DEFAULT_USER_CHOICE}, computer picked ${computerChoice}, therefor you `;
